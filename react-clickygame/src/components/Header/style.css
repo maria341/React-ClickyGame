@@ -1,0 +1,10 @@
+.header {
+    height: 150px;
+}
+
+.header h3 {
+    font-size: 2rem;
+    text-align: center;
+    font-style: italic;
+    margin-top: 40px;
+}

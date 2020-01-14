@@ -1,0 +1,13 @@
+.images {
+  background-color: #474a00;
+  height: auto;
+  
+}
+img {
+  margin: 10px 20px 10px 20px;
+  height: 200px;
+  width: 200px;
+}
+.container {
+  width: 1000px;
+}

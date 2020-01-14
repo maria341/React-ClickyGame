@@ -1,16 +1,19 @@
 import React, { Component } from 'react';
-import DogCard from './components/DogCard';
-import Footer from './components/Footer';
-import Navbar from './components/Navbar';
 import './App.css';
+import Navbar from './components/Navbar';
+import Container from './components/Container';
+import Footer from './components/Footer';
+import Header from './components/Header';
+
 
 
 class App extends Component {
+  // We set the variables that change during the game as states
   state = {
     score : 0,
     topScore: 0,
     idsSelected: [],
-    message: "Start Clicking!!"
+    message: "Click any image to start the game!!"
   }
   
   //Function for when user clicks on any image
@@ -26,46 +29,43 @@ class App extends Component {
       this.setState({
         score: 0, 
         idsSelected: [],
-        message: "Oops! Library already chosen...",
+        message: "Image already been clicked!!",
       });
 
     } else {
       //If the user clicks on an image for the first time, that ID is saved on the arrays of images ID
       this.state.idsSelected.push(imageID);
 
-      //We have to update the score and the high score, we run a conditional
-      //Whenever the high score is lower than actual score, set the high score to new score
+      
       if(this.state.topScore <= this.state.score) {
         this.setState({
           topScore: this.state.score + 1,
-          message: "Library never selected!",
+          message: "Image never selected!",
           score: this.state.score + 1
         })
       } else {
-        //If high score is greater than the new score, keep the high score while updating the new score
+        
         this.setState({
-          message: "Library never selected!",
+          message: "Image never selected!",
           score: this.state.score + 1
         })
       }
     }
   }
   
- 
   render() {
     return (
       <div>
         {/* We pass the message, score and high score to the Nav component while playing */}
-        <Navbar score={this.state.score} topScore={this.state.topScore}/>
-        <Navbar />
+        <Navbar message={this.state.message} />
+        <Header message={this.state.message} score={this.state.score} topScore={this.state.topScore} />
         {/* We pass the click function to the Images container */}
-        <DogCard handleImageClick={this.handleImageClick}/>
-        <DogCard />
+        <Container handleImageClick={this.handleImageClick}/>
+        <Footer />
       </div>
     );
   }
  
 }
-
 
 export default App;

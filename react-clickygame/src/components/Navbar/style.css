@@ -3,7 +3,9 @@
   font-family: 'Montserrat', sans-serif;
 }
 .navbar h3 {
-  font-size: 3rem;
-  text-align: center;
-  margin-left: 50px;
+  font-size: 2rem;
+    text-align: center;
+    font-style: italic;
+   
 }
+
